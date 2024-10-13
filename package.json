@@ -1,0 +1,38 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "storybook": "storybook dev -p 6006"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@nuxtjs/storybook": "^8.3.1",
+    "@pinia/nuxt": "^0.5.5",
+    "@storybook-vue/nuxt": "^8.3.1",
+    "cypress-plugin-snapshots": "^1.4.4",
+    "nuxt": "^3.13.0",
+    "vee-validate": "^4.13.2",
+    "vue": "latest",
+    "vue-router": "latest",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.8",
+    "@storybook/addon-actions": "^8.3.5",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/test": "^8.3.5",
+    "@types/cypress-image-snapshot": "^3.1.9",
+    "cypress": "^13.15.0",
+    "cypress-image-snapshot": "^4.0.1",
+    "storybook-addon-vue-slots": "^0.9.29"
+  }
+}

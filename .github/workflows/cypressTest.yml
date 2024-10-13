@@ -1,0 +1,50 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches:
+      - natnaelAbebaw
+  pull_request:
+    branches:
+      - natnaelAbebaw
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Step 3: Install dependencies (e.g., npm install)
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run Cypress tests
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v5
+        with:
+          build: npm run build
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: chrome
+          headless: true
+
+      - name: Upload Cypress artifacts (screenshots, videos)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-artifacts
+          path: cypress/screenshots, cypress/videos
